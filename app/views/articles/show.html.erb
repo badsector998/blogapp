@@ -1,0 +1,30 @@
+<div class="display-4 mb-4">
+    <%= @article.title %>
+</div>
+
+<div class = "mb-2">
+    <p class = "text-justified"><%= @article.body %></p>
+</div>
+
+<% if @article.tags.any? %>
+    <div class = "mb-2">
+        <strong>tags: </strong>
+        <p class = "text-justified"><%= @article.tags.map(&:name).join(', ') %></p>
+    </div>
+<% end %>
+
+<div class="mb-4">
+    <%= render @article.comments %>
+</div>
+
+<%= render 'comments/form' %>
+
+<!-- 
+<ul>
+    <li><%= link_to "Edit this article", edit_article_path(@article) %></li>
+    <li><%= link_to "Delete this article", article_path(@article), data:{
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %></li>
+</ul>
+-->

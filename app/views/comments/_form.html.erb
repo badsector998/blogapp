@@ -1,0 +1,48 @@
+<%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
+  <div class="container mt-4 mb-5 p-4 border rounded">
+    <h4 class="mb-4">Add a Comment</h4>
+    
+    <!-- Commenter Input -->
+    <div class="form-group">
+      <%= form.label "Your Name", class: 'form-label' %>
+      <%= form.text_field :commenter, class: 'form-control', placeholder: 'Your name', required: true %>
+    </div>
+
+    <!-- Body Input -->
+    <div class="form-group">
+      <%= form.label :body, class: 'form-label' %>
+      <%= form.text_area :body, rows: 4, class: 'form-control', placeholder: 'Your comment', required: true %>
+    </div>
+
+    <!-- Status Select -->
+    <div class="form-group">
+      <%= form.label :status, class: 'form-label' %>
+      <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, class: 'form-control' %>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group mt-4 mb-0">
+      <%= form.submit 'Post Comment', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<!--
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+    <p>
+        <%= form.label :commenter %><br>
+        <%= form.text_field :commenter%>
+    </p>
+    <p>
+        <%= form.label :body %><br>
+        <%= form.text_field :body%>
+    </p>
+    <p>
+        <%= form.label :status %><br>
+        <%= form.select :status, Visible::VALID_STATUSES, selected: 'public'%>
+    </p>
+    <p>
+        <%= form.submit %><br>
+    </p>
+<% end %>
+-->

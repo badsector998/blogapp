@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href=" <%= articles_path %> ">XV</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href=" <%= articles_path %> ">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=" <%= new_article_path %> ">Create Articles</a>
+        </li>
+        <% if controller_name == 'articles' && action_name == 'show' %>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Article Option
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="<%= edit_article_path(@article.id) %>">Edit this article</a></li>
+                <li class="dropdown-item">
+                        <%= link_to "Delete this article", article_path(@article), data:{
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                        } %>
+                </li>
+            </ul>
+            </li>
+        <% end %>
+      </ul> 
+    </div>
+  </div>
+</nav>

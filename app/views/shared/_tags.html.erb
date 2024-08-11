@@ -1,0 +1,39 @@
+<div class="card mb-4">
+  <div class="card-header">Tags</div>
+  <div class="card-body">
+    <% if @tags.present? %>
+      <div class="row">
+        <% @tags.each_slice((@tags.size / 5.0).ceil) do |tag_group| %>
+          <div class="col-md-4">
+            <ul class="list-unstyled mb-0">
+              <% tag_group.each do |tag| %>
+                <li><a href="#"><%= tag.name %></a></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--
+
+<div class="card mb-4">
+    <div class="card-header">Tags</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <% if @tags.present? %>
+                    <ul class="list-unstyled mb-0">
+                        <% @tags.each do |tag| %>
+                            <li><a href="#"><%= tag.name %></a></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+ -->

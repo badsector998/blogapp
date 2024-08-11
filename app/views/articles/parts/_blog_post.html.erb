@@ -1,0 +1,20 @@
+<div class="row">
+  <% @articles.reject(&:featured?).each do |article| %>
+    <div class="col-lg-6 mb-4">
+      <!-- Blog post-->
+      <div class="card">
+        <% if article.image.attached? %>
+          <%= image_tag article.image.variant(resize_to_limit: [700, 350]) %>
+        <% else %>
+          <%= image_tag "https://dummyimage.com/700x350/dee2e6/6c757d.jpg", class: "card-img-top", alt: "..." %>
+        <% end %>
+        <div class="card-body">
+          <div class="small text-muted"><%= article.created_at.strftime("%B %d, %Y") %></div>
+          <h2 class="card-title h4"><%= article.title %></h2>
+          <p class="card-text"><%= truncate(article.body, length: 100, separator: ' ') %></p>
+          <a class="btn btn-primary" href="<%= article_path(article) %>">Read more →</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<div class="card mb-4">
+    <% if @featured.image.attached? %>
+        <%= image_tag @featured.image.variant(resize_to_limit: [700, 350]) %>
+        <% else %>
+        <%= image_tag "https://dummyimage.com/700x350/dee2e6/6c757d.jpg", class: "card-img-top", alt: "..." %>
+        <% end %>
+    <div class="card-body">
+        <div class="small text-muted"><%= @featured.created_at.strftime("%B %d, %Y") %></div>
+        <h2 class="card-title"><%= @featured.title %></h2>
+        <p class="card-text"><%= truncate(@featured.body, length: 100, separator: ' ') %></p>
+        <a class="btn btn-primary" href="<%= article_path(@featured) %>">Read more →</a>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<% unless comment.archived? %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <!-- Commenter Name -->
+      <h5 class="card-title">
+        <strong>Name:</strong> <%= comment.commenter %>
+      </h5>
+      
+      <!-- Comment Body -->
+      <p class="card-text">
+        <strong>Comment:</strong> <%= comment.body %>
+      </p>
+      
+      <!-- Delete Link, still bug instead request DELETE instead got GET -->
+      <p class="mb-0">
+        <%= link_to "Delete comment", [comment.article, comment], class: "btn btn-danger", data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<!--
+<% @article.comments.each do |comment| %>
+    <p>
+        <strong>Commenter: </strong>
+        <%= comment.commenter %>
+    </p>
+    <p>
+        <strong>Comment: </strong>
+        <%= comment.body %>
+    </p>
+<% end %>
+-->
+
+<!--
+<% unless comment.archived? %>
+    <p>
+        <strong>Commenter: </strong>
+        <%= comment.commenter %>
+    </p>
+    <p>
+        <strong>Comment: </strong>
+        <%= comment.body %>
+    </p>
+    <p>
+        <%= link_to "Delete comment", [ comment.article, comment ], data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        }%>
+    </p>
+<% end %>
+-->
