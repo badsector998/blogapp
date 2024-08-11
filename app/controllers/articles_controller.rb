@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-    http_basic_authenticate_with name:"rlfpr", password: "secret", except: [:index, :show]
-    before_action :new_article_path, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_admin!, only: [:new, :update, :destroy]
 
     def index
         @articles = Article.page(params[:page]).order(created_at: :desc)

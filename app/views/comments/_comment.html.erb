@@ -12,12 +12,14 @@
       </p>
       
       <!-- Delete Link, still bug instead request DELETE instead got GET -->
-      <p class="mb-0">
-        <%= link_to "Delete comment", [comment.article, comment], class: "btn btn-danger", data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-        } %>
-      </p>
+      <% if admin_signed_in? %>
+        <p class="mb-0">
+          <%= link_to "Delete comment", [comment.article, comment], class: "btn btn-danger", data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+          } %>
+        </p>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -13,6 +13,14 @@
     </div>
 <% end %>
 
+<% if admin_signed_in? %>
+    <div>
+        <%= link_to "Delete Article", article_path(@article), data:{ turbo_method: :delete, data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        }}, class: "btn btn-danger mb-2"%>
+    </div>
+<% end %>
 <div class="mb-4">
     <%= render @article.comments %>
 </div>

@@ -15,10 +15,12 @@
     </div>
 
     <!-- Status Select -->
-    <div class="form-group">
-      <%= form.label :status, class: 'form-label' %>
-      <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, class: 'form-control' %>
-    </div>
+    <% if admin_signed_in? %>
+      <div class="form-group">
+        <%= form.label :status, class: 'form-label' %>
+        <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, class: 'form-control' %>
+      </div>
+    <% end %>
 
     <!-- Submit Button -->
     <div class="form-group mt-4 mb-0">
