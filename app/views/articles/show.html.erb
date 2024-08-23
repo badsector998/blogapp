@@ -14,12 +14,17 @@
 <% end %>
 
 <% if admin_signed_in? %>
-    <div>
-        <%= link_to "Delete Article", article_path(@article), data:{ turbo_method: :delete, data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-        }}, class: "btn btn-danger mb-2"%>
-    </div>
+        <div class="row">
+            <div class="col col-md-2">
+                <%= link_to "Delete Article", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                }, class: "btn btn-danger mb-2"%>
+            </div>
+            <div class="col col-md-2">
+                <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-warning mb-2" %>
+            </div>
+        </div>
 <% end %>
 <div class="mb-4">
     <%= render @article.comments %>

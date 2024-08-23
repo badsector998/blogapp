@@ -50,6 +50,15 @@ class ArticlesController < ApplicationController
         redirect_to articles_path, status: :see_other
     end
 
+    def by_tag
+        @tag = Tag.find_by(name: params[:tag])
+        if @tag && @tag.articles.any?
+            @articles = @tag.articles
+        else
+            redirect_to articles_path, status: :see_other
+        end
+    end
+
     private
         def article_params
             params.require(:article).permit(:title, :body, :status, :featured, :image)

@@ -7,7 +7,7 @@
           <div class="col-md-4">
             <ul class="list-unstyled mb-0">
               <% tag_group.each do |tag| %>
-                <li><a href="#"><%= tag.name %></a></li>
+                <li><a href="<%= tag_articles_path(tag: tag.name) %>"><%= tag.name %></a></li>
               <% end %>
             </ul>
           </div>

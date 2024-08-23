@@ -4,8 +4,10 @@ class Article < ApplicationRecord
     scope :featured, -> { where(featured: true).first }
 
     has_many :comments, dependent: :destroy
+
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
+    
     has_one_attached :image
 
     validates :title, presence: true

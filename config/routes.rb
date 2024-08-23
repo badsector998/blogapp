@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
     get 'page/:page', action: :index, on: :collection
+    get 'tag/:tag', action: :by_tag, on: :collection, as: 'tag'
   end
 
   # Defines the root path route ("/")
