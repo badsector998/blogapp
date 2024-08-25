@@ -1,24 +1,12 @@
-# README
+# Personal BlogApp Developed in Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features
+- UI template used from [StartBootstrap/startbootstratp-blog-home](https://github.com/StartBootstrap/startbootstrap-blog-home)
+- Database used is PostgreSQL
+- Built on top of getting started Ruby on Rails
+- Modified with tagging system and admin login using devise (or any registered user can login and create or modify content)
+- Tagging system
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Will update
+- Search features
+- Limit who can register and login
